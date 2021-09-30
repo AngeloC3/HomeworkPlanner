@@ -13,7 +13,8 @@ const futureBullets = [
                         'Moifying homework data for those classes',
                         'Viewing your homework on a calender',
                         'Viewing your homework in a class by class screen',
-                        'Add settings to further customize the experience'
+                        'Add settings to further customize the experience',
+                        'Potentially change the buttons on the bottom to a tab navigatior',
                       ];
 
 const ListsAbout = () => {
@@ -55,6 +56,7 @@ const ListsAbout = () => {
                </View>
              );
            }}
+            keyExtractor={(aboutBullets) => aboutBullets.id}
          />
       </View>
    </View>

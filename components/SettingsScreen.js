@@ -34,7 +34,7 @@ const SettingsScreen = ({ navigation }) => {
       </View>
 
       <View style={{flex:.5, justifyContent: 'center', alignItems:'center',}}>
-        <Text style={{flex:.5, color:'white', marginTop: 0,}}>
+        <Text style={{flex:.5, color:'white',}}>
             Settings to allow usage customization has not yet been implemented
         </Text>
       </View>
