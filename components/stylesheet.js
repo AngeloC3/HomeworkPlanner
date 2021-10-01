@@ -49,8 +49,8 @@ export const liststyles = StyleSheet.create({
   listBox: {
     flex: 1,
     flexDirection: 'column',
-    margin: 8,
-    padding: 8,
+    margin: 7,
+    padding: 7,
     borderWidth: 2,
     borderColor: 'black',
     borderRadius: 5,
