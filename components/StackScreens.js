@@ -6,18 +6,24 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen.js';
 import AboutScreen from './AboutScreen.js';
 import SettingsScreen from './SettingsScreen.js';
+import ClassManagementScreen from './ClassManagementScreen.js';
 
 const Stack = createNativeStackNavigator();
 
 const StackScreens = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Class Management">
 
         <Stack.Screen
           name="Home"
           component={HomeScreen}
           //options={{ title: 'Welcome' }}
+        />
+
+        <Stack.Screen
+          name="Class Management"
+          component={ClassManagementScreen}
         />
 
         <Stack.Screen

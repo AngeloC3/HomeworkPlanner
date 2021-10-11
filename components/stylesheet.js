@@ -74,4 +74,18 @@ export const liststyles = StyleSheet.create({
   },
 });
 
+export const listwrap = StyleSheet.create({
+  middleBody: {
+    flex: 1,
+    justifyContent:'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  innerList: {
+    flex: 1,
+    justifyContent:'center',
+    alignItems: 'center',
+  },
+});
+
 export default styles

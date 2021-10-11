@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Button, FlatList, } from 'react-native';
 
-import styles, { liststyles } from '../components/stylesheet.js';
+import styles, { liststyles, listwrap } from '../components/stylesheet.js';
 
 const aboutBullets = [
                       'This app was made by Angelo Cataldo',
@@ -63,19 +63,5 @@ const ListsAbout = () => {
 
   )
 }
-
-const listwrap = StyleSheet.create({
-  middleBody: {
-    flex: 1,
-    justifyContent:'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  innerList: {
-    flex: 1,
-    justifyContent:'center',
-    alignItems: 'center',
-  },
-});
 
 export default ListsAbout

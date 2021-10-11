@@ -17,6 +17,14 @@ const NavigationButtons = ({ navigation }) => {
         </View>
         <View style={buttonstyles.indi}>
           <Button
+            title = 'Class Management'
+            color = 'blue'
+            onPress={() =>
+              navigation.navigate('Class Management')}
+          />
+        </View>
+        <View style={buttonstyles.indi}>
+          <Button
             title = 'About this app'
             color = 'blue'
             onPress={() =>

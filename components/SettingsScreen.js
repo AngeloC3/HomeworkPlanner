@@ -46,27 +46,4 @@ const SettingsScreen = ({ navigation }) => {
   )
 }
 
-const buttonstyles = StyleSheet.create({
-  buttonsOutside: {
-    flex: 1,
-  },
-  buttons: {
-    flex: 1,
-    flexDirection: 'row',
-    margin: 8,
-    padding: 8,
-    borderWidth: 4,
-    borderColor: "black",
-    borderRadius: 10,
-    backgroundColor: "#87CEEB",
-    alignItems: 'stretch',
-    justifyContent: 'center',
-  },
-  indi: {
-    flex: 1,
-    alignItems: 'stretch',
-    justifyContent: 'center',
-  },
-});
-
 export default SettingsScreen
