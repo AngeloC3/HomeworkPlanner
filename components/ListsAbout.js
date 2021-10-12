@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Button, FlatList, } from 'react-native';
+import { Text, View, Button, FlatList, } from 'react-native';
 
 import styles, { liststyles, listwrap } from '../components/stylesheet.js';
 

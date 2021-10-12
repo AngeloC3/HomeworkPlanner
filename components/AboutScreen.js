@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Button, SectionList, ScrollView} from 'react-native';
+import { Text, View, Button, SectionList, ScrollView} from 'react-native';
 
 import styles, {textstyles , liststyles} from './stylesheet.js';
 import NavButtons from './NavigationButtons.js';

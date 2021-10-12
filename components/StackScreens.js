@@ -7,6 +7,8 @@ import HomeScreen from './HomeScreen.js';
 import AboutScreen from './AboutScreen.js';
 import SettingsScreen from './SettingsScreen.js';
 import ClassManagementScreen from './ClassManagementScreen.js';
+import AddClassUE from './AddClassUE.js';
+import DeleteClass from './DeleteClass.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +26,16 @@ const StackScreens = () => {
         <Stack.Screen
           name="Class Management"
           component={ClassManagementScreen}
+        />
+
+        <Stack.Screen
+          name="Add Class"
+          component={AddClassUE}
+        />
+
+        <Stack.Screen
+          name="Delete Class"
+          component={DeleteClass}
         />
 
         <Stack.Screen

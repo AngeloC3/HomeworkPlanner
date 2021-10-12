@@ -1,13 +1,11 @@
 import React, {useState} from 'react';
-import {Text, View, FlatList, StyleSheet, Button} from 'react-native';
+import {Text, View, FlatList, Button} from 'react-native';
 
 import styles, { liststyles , } from './stylesheet.js';
 
 const SimpleClassesList = ({state}) => {
   let debugging = false;
   let temp = state;
-  //const [emptyList, setEmptyList] =
-
 
   return (
 

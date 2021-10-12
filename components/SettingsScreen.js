@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState , } from 'react';
-import { Text, View, TextInput, StyleSheet, ScrollView} from 'react-native';
+import { Text, View, TextInput, ScrollView} from 'react-native';
 
 import styles, { textstyles , liststyles} from './stylesheet.js';
 import NavButtons from './NavigationButtons.js';

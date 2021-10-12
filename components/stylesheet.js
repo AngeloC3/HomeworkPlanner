@@ -88,4 +88,19 @@ export const listwrap = StyleSheet.create({
   },
 });
 
+export const touchstyles = StyleSheet.create({
+  touch: {
+    flex: 1,
+    flexDirection: 'column',
+    margin: 8,
+    padding: 8,
+    borderWidth: 4,
+    borderColor: "black",
+    borderRadius: 10,
+    backgroundColor: 'lightblue',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
 export default styles

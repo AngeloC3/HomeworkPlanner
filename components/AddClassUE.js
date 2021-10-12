@@ -1,11 +1,9 @@
 import React, { useState, useRef , useEffect} from 'react';
-import {Text, View, TextInput, FlatList, StyleSheet, Button} from 'react-native';
+import {Text, View, TextInput, FlatList, Button} from 'react-native';
 
 import styles, { textstyles , liststyles , } from './stylesheet.js';
-import NavButtons from './NavigationButtons.js';
 import Class from './Class.js'
 import ClassListUE from './SimpleClassesListUE.js';
-import {useValue} from './ValueProvider.js';
 import {getClassesData , storeClassesData, clearAll} from './AsyncStore.js'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -15,9 +13,7 @@ const AddClass = () => {
   const [class2Add, setClass2Add] = useState(null);
   const [addedNull, setAddedNull] = useState(false);
   const inputRef = useRef();
-  const {currentValue} = useValue();
-  const [classState, setClassState] = useState(currentValue.userClasses);
-  let userClasses = currentValue.userClasses;
+  const [classState, setClassState] = useState(null);
 
   // useEffect(() => {getClassesData({userClasses})}
   //         ,[])
@@ -47,6 +43,10 @@ const AddClass = () => {
   return (
 
     <View style={styles.container}>
+
+    <View style={textstyles.title}>
+        <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Your Classes </Text>
+    </View>
 
       <View style={{flex:10}}>
         <ClassListUE state={classState}/>
