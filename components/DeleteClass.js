@@ -81,34 +81,36 @@ const DeleteClass = ({navigation}) => {
                       <TouchableOpacity
                         style={touchstyles.touch}
                         onPress={() => {
-                          Alert.alert(
-                            "Confirm",
-                            "Are you sure you wish to delete " + userClass.item.name + "?",
-                            [
-                              {
-                                text: "Yes", onPress: () => {
-                                  const index = classState.indexOf(userClass.item);
-                                  console.log("Index: " + index);
-                                  console.log("ClassState[i]: " + JSON.stringify(classState[index]));
-                                    if (index >= 0) {
-                                      classState.splice(index, 1);
-                                      setClassState(classState);
-                                      console.log('Splicing')
+                          if (Platform.OS !== "web") {
+                            Alert.alert(
+                              "Confirm",
+                              "Are you sure you wish to delete " + userClass.item.name + "?",
+                              [
+                                {
+                                  text: "Yes", onPress: () => {
+                                    const index = classState.indexOf(userClass.item);
+                                    console.log("Index: " + index);
+                                    console.log("ClassState[i]: " + JSON.stringify(classState[index]));
+                                      if (index >= 0) {
+                                        classState.splice(index, 1);
+                                        setClassState(classState);
+                                        console.log('Splicing')
+                                      }
+                                    console.log("classState: " + JSON.stringify(classState));
+                                    const userInfo = {userClasses:classState};
+                                    console.log('data='+JSON.stringify(userInfo));
+                                    storeClassesData(userInfo)
+                                    if (key === 'refresha') {
+                                      setKey('refreshb');
+                                    } else {
+                                      setKey('refresha');
                                     }
-                                  console.log("classState: " + JSON.stringify(classState));
-                                  const userInfo = {userClasses:classState};
-                                  console.log('data='+JSON.stringify(userInfo));
-                                  storeClassesData(userInfo)
-                                  if (key === 'refresha') {
-                                    setKey('refreshb');
-                                  } else {
-                                    setKey('refresha');
                                   }
-                                }
-                              },
-                              { text: "No", }
-                            ]
-                          );
+                                },
+                                { text: "No", }
+                              ]
+                            );
+                          }
                           if (Platform.OS === 'web') { // This is because Alert doesnt show on web
                             const index = classState.indexOf(userClass.item);
                             console.log("Index: " + index);
