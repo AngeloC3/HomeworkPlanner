@@ -1,5 +1,5 @@
 import React, { useState, useRef , useEffect} from 'react';
-import {Text, View, TextInput, FlatList, Button, TouchableOpacity} from 'react-native';
+import {Text, View, TextInput, FlatList, Button, TouchableOpacity, RefreshControl} from 'react-native';
 
 import styles, { textstyles , liststyles , touchstyles , } from './stylesheet.js';
 import Class from './Class.js'
@@ -10,6 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const DeleteClass = () => {
   let debugging = true;
   const [classState, setClassState] = useState(null);
+  const [key, setKey] = useState('refresha')
 
   // useEffect(() => {getClassesData({userClasses})}
   //         ,[])
@@ -47,7 +48,6 @@ const DeleteClass = () => {
             title = 'classState=?'
             onPress={() => {
                 console.log("classState: " + JSON.stringify(classState));
-                console.log("userClasses: " + JSON.stringify(userClasses));
              }}
             />
         </View>
@@ -62,7 +62,7 @@ const DeleteClass = () => {
           {classState != "" ?
             <FlatList
               data={classState}
-              extraData={true}
+              key={key}
               renderItem={(userClass) => {
                 return (
                   <View style={liststyles.listBox}>
@@ -78,6 +78,14 @@ const DeleteClass = () => {
                             console.log('Splicing')
                           }
                         console.log("classState: " + JSON.stringify(classState));
+                        const userInfo = {userClasses:classState};
+                        console.log('data='+JSON.stringify(userInfo));
+                        storeClassesData(userInfo)
+                        if (key === 'refresha') {
+                          setKey('refreshb');
+                        } else {
+                          setKey('refresha');
+                        }
                         }}
                       >
                       <Text style={liststyles.listText}> {userClass.item.name} </Text>
@@ -111,7 +119,5 @@ const DeleteClass = () => {
    </View>
    )
 }
-
-
 
 export default DeleteClass

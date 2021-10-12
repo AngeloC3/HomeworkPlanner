@@ -13,7 +13,7 @@ const AddClass = () => {
   const [class2Add, setClass2Add] = useState(null);
   const [addedNull, setAddedNull] = useState(false);
   const inputRef = useRef();
-  const [classState, setClassState] = useState(null);
+  const [classState, setClassState] = useState([]);
 
   // useEffect(() => {getClassesData({userClasses})}
   //         ,[])
@@ -67,11 +67,10 @@ const AddClass = () => {
             color = 'blue'
             title = 'Add this class!'
             onPress={() => {
+              console.log("class2add: " + class2Add)
                if (class2Add !== null && class2Add !== "") {
-                 //userClasses.push(new Class(class2Add));
                  classState.push(new Class(class2Add))
                  setClassState(classState);
-                 userClasses = classState;
                  inputRef.current.clear();
                  setClass2Add(null);
                  setAddedNull(false);

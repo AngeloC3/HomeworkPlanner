@@ -36,7 +36,9 @@ const ClassManagementScreen = ({ navigation }) => {
               <TouchableOpacity
                 style={touchstyles.touch}
                 >
-                <Text style={textstyles.titleText}> Modify Class (not yet implemented) </Text>
+                <Text style={textstyles.titleText} adjustsFontSizeToFit={true}>
+                  Modify Class (not yet implemented)
+                </Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -68,7 +70,7 @@ const ClassManagementScreen = ({ navigation }) => {
 const managestyles = StyleSheet.create({
   box: {
     flex: 7,
-    flexDirection: 'row',
+    flexDirection: 'column',
     margin: 8,
     padding: 8,
     borderWidth: 4,
