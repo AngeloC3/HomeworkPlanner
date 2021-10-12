@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { StyleSheet, View, Button, TouchableOpacity, Text} from 'react-native';
 
-import styles, { skyBlue } from '../components/stylesheet.js';
+import styles, { skyBlue , touchstyles} from '../components/stylesheet.js';
 
-const NavigationButtons = ({ navigation }) => {
+export const NavigationButtons = ({ navigation }) => {
   return (
 
       <View style={buttonstyles.buttons}>
@@ -82,5 +82,3 @@ const buttonstyles = StyleSheet.create({
     alignItems: 'stretch',
   },
 });
-
-export default NavigationButtons
