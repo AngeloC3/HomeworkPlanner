@@ -9,7 +9,7 @@ import DeleteClass from './DeleteClass.js';
 
 const Stack = createNativeStackNavigator();
 
-const StackScreens = () => {
+const StackCMScreens = () => {
   return (
       <Stack.Navigator initialRouteName="Class Management"
       screenOptions={{headerShown: false}}
@@ -35,4 +35,4 @@ const StackScreens = () => {
   );
 };
 
-export default StackScreens;
+export default StackCMScreens;
