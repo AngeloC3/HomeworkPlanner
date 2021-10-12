@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Text, View, Image, ScrollView, } from 'react-native';
 
 import styles, {textstyles} from './stylesheet.js';
-import NavButtons from './NavigationButtons.js';
 
 const HomeScreen = ({ navigation }) => {
   return (

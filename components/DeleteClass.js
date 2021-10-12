@@ -1,13 +1,13 @@
 import React, { useState, useRef , useEffect} from 'react';
-import {Text, View, TextInput, FlatList, Button, TouchableOpacity, RefreshControl} from 'react-native';
+import {Text, View, TextInput, FlatList, Button, TouchableOpacity, } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles, { textstyles , liststyles , touchstyles , } from './stylesheet.js';
 import Class from './Class.js'
 import {getClassesData , storeClassesData, clearAll} from './AsyncStore.js'
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import GoBack from './GoBack.js';
 
-
-const DeleteClass = () => {
+const DeleteClass = ({navigation}) => {
   let debugging = false;
   const [classState, setClassState] = useState(null);
   const [key, setKey] = useState('refresha')
@@ -53,8 +53,18 @@ const DeleteClass = () => {
         </View>
       }
 
-      <View style={textstyles.title}>
-          <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Your Classes </Text>
+      <View style={{flexDirection:'row'}}>
+
+        <View style={{flex:1}}>
+          <GoBack navigation={navigation}/>
+        </View>
+
+        <View style={{flex:7}}>
+          <View style={textstyles.title}>
+              <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Your Classes </Text>
+          </View>
+        </View>
+
       </View>
 
       <View style={{flex:10}}>

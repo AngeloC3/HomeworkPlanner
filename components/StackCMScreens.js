@@ -15,7 +15,6 @@ const StackCMScreens = () => {
       screenOptions={{headerShown: false}}
       >
 
-
         <Stack.Screen
           name="Class Management"
           component={ClassManagementScreen}

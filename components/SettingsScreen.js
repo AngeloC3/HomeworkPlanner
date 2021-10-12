@@ -3,7 +3,6 @@ import { useState , } from 'react';
 import { Text, View, TextInput, ScrollView} from 'react-native';
 
 import styles, { textstyles , liststyles} from './stylesheet.js';
-import NavButtons from './NavigationButtons.js';
 
 const SettingsScreen = ({ navigation }) => {
   const [firstName,setFirstName] = useState("");

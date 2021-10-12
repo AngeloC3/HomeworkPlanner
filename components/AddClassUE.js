@@ -1,15 +1,16 @@
 import React, { useState, useRef , useEffect} from 'react';
-import {Text, View, TextInput, FlatList, Button} from 'react-native';
+import {Text, View, TextInput, FlatList, Button, } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles, { textstyles , liststyles , } from './stylesheet.js';
 import Class from './Class.js'
 import ClassListUE from './SimpleClassesListUE.js';
 import {getClassesData , storeClassesData, clearAll} from './AsyncStore.js'
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import GoBack from './GoBack.js';
 
 
-const AddClass = () => {
-  let debugging = false;
+const AddClass = ({navigation}) => {
+  let debugging = true;
   const [class2Add, setClass2Add] = useState(null);
   const [addedNull, setAddedNull] = useState(false);
   const inputRef = useRef();
@@ -44,8 +45,18 @@ const AddClass = () => {
 
     <View style={styles.container}>
 
-    <View style={textstyles.title}>
-        <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Your Classes </Text>
+    <View style={{flexDirection:'row'}}>
+
+      <View style={{flex:1}}>
+        <GoBack navigation={navigation}/>
+      </View>
+
+      <View style={{flex:7}}>
+        <View style={textstyles.title}>
+            <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Your Classes </Text>
+        </View>
+      </View>
+
     </View>
 
       <View style={{flex:10}}>

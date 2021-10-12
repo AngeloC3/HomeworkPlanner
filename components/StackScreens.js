@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 const StackScreens = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator screenOptions={{ headerShown: false }}>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Class Management" component={StackCMScreens} />
         <Tab.Screen name="About" component={AboutScreen} />

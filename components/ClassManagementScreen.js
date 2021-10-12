@@ -3,7 +3,6 @@ import { useState , } from 'react';
 import { Text, View,ScrollView, Button, StyleSheet, TouchableOpacity} from 'react-native';
 
 import styles, { textstyles , skyBlue, touchstyles } from './stylesheet.js';
-import NavButtons from './NavigationButtons.js';
 import AddClassUE from  './AddClassUE.js';
 
 const ClassManagementScreen = ({ navigation }) => {
@@ -12,7 +11,7 @@ const ClassManagementScreen = ({ navigation }) => {
 
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
       <View style={styles.container}>
-
+      
         <View style={textstyles.title}>
             <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Class Management </Text>
         </View>
