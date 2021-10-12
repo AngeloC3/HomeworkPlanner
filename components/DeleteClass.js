@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const DeleteClass = () => {
-  let debugging = true;
+  let debugging = false;
   const [classState, setClassState] = useState(null);
   const [key, setKey] = useState('refresha')
 

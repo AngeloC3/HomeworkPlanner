@@ -9,7 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const AddClass = () => {
-  let debugging = true;
+  let debugging = false;
   const [class2Add, setClass2Add] = useState(null);
   const [addedNull, setAddedNull] = useState(false);
   const inputRef = useRef();

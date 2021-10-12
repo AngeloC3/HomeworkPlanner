@@ -57,7 +57,7 @@ const ClassManagementScreen = ({ navigation }) => {
 
         </View>
 
-        <View style={{flex:2}}>
+        <View style={{flex:3}}>
           <NavButtons navigation={navigation} />
         </View>
 

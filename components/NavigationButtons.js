@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View, Button, } from 'react-native';
+import { StyleSheet, View, Button, TouchableOpacity, Text} from 'react-native';
 
 import styles, { skyBlue } from '../components/stylesheet.js';
 
@@ -8,44 +8,52 @@ const NavigationButtons = ({ navigation }) => {
 
       <View style={buttonstyles.buttons}>
         <View style={buttonstyles.indi}>
-          <Button
-            title = 'Home'
-            color = 'blue'
+          <TouchableOpacity
+            style={buttonstyles.touch}
             onPress={() =>
               navigation.navigate('Home')}
-          />
+            >
+            <Text style={buttonstyles.listText} adjustsFontSizeToFit={true} numberOfLines={1}> Home </Text>
+          </TouchableOpacity>
         </View>
         <View style={buttonstyles.indi}>
-          <Button
-            title = 'Class Management'
-            color = 'blue'
+          <TouchableOpacity
+            style={buttonstyles.touch}
             onPress={() =>
               navigation.navigate('Class Management')}
-          />
+            >
+              <Text style={buttonstyles.listText}> Class </Text>
+              <Text style={buttonstyles.listText}> Management </Text>
+          </TouchableOpacity>
         </View>
         <View style={buttonstyles.indi}>
-          <Button
-            title = 'About this app'
-            color = 'blue'
+          <TouchableOpacity
+            style={buttonstyles.touch}
             onPress={() =>
               navigation.navigate('About')}
-          />
+            >
+            <Text style={buttonstyles.listText}> About </Text>
+          </TouchableOpacity>
         </View>
         <View style={buttonstyles.indi}>
-          <Button
-            title = 'Settings'
-            color = 'blue'
+          <TouchableOpacity
+            style={buttonstyles.touch}
             onPress={() =>
               navigation.navigate('Settings')}
-          />
+            >
+            <Text style={buttonstyles.listText}> Settings </Text>
+          </TouchableOpacity>
         </View>
       </View>
   )
 }
 
 const buttonstyles = StyleSheet.create({
-  buttonsOutside: {
-    flex: 1,
+  listText: {
+    color: "black",
+    textAlign: "center",
+    fontSize: 10,
+    fontWeight: 'bold'
   },
   buttons: {
     flex: .5,
@@ -56,13 +64,22 @@ const buttonstyles = StyleSheet.create({
     borderColor: "black",
     borderRadius: 10,
     backgroundColor: skyBlue,
-    alignItems: 'stretch',
+    alignItems: 'center',
     justifyContent: 'center',
   },
   indi: {
     flex: 1,
-    alignItems: 'stretch',
+    alignSelf: 'center',
     justifyContent: 'center',
+  },
+  touch: {
+    height:'100%',
+    width:'100%',
+    flexDirection: 'column',
+    margin: 8,
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'stretch',
   },
 });
 
