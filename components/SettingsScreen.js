@@ -40,8 +40,6 @@ const SettingsScreen = ({ navigation }) => {
           </Text>
         </View>
 
-        <NavButtons navigation={navigation} />
-
       </View>
     </ScrollView>
 

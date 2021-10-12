@@ -3,11 +3,12 @@ import {View, Text } from 'react-native';
 
 import styles from './components/stylesheet.js';
 import StackScreens from './components/StackScreens.js';
-import Class from './components/Class.js'
+import Class from './components/Class.js';
 //import AddClass from './components/AddClass.js'
 //import ClassList from './components/SimpleClassesList.js'
 //import Cms from './components/ClassManagementScreen.js'
 //import ValueToScreens from './components/ValueToScreens.js'
+//import StackCMScreens from './components/StackCMScreens.js';
 
 export default function App() {
 

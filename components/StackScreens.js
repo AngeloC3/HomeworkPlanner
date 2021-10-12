@@ -1,54 +1,27 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 //import { } from 'react-native';
 import HomeScreen from './HomeScreen.js';
+import StackCMScreens from './StackCMScreens.js';
 import AboutScreen from './AboutScreen.js';
 import SettingsScreen from './SettingsScreen.js';
-import ClassManagementScreen from './ClassManagementScreen.js';
 import AddClassUE from './AddClassUE.js';
 import DeleteClass from './DeleteClass.js';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const StackScreens = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Class Management">
-
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          //options={{ title: 'Welcome' }}
-        />
-
-        <Stack.Screen
-          name="Class Management"
-          component={ClassManagementScreen}
-        />
-
-        <Stack.Screen
-          name="Add Class"
-          component={AddClassUE}
-        />
-
-        <Stack.Screen
-          name="Delete Class"
-          component={DeleteClass}
-        />
-
-        <Stack.Screen
-          name="About"
-          component={AboutScreen}
-        />
-
-        <Stack.Screen
-          name="Settings"
-          component={SettingsScreen}
-        />
-
-      </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Class Management" component={StackCMScreens} />
+        <Tab.Screen name="About" component={AboutScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };

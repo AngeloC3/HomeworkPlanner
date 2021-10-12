@@ -51,7 +51,6 @@ const AboutScreen = ({ navigation }) => {
           </View>
         </View>
 
-        <NavButtons navigation={navigation} />
 
       </View>
     </ScrollView>

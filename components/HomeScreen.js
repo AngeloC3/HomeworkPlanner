@@ -19,7 +19,6 @@ const HomeScreen = ({ navigation }) => {
             source={require('../assets/HWPlannerImage.jpg')} />
         </View>
 
-        <NavButtons navigation={navigation} />
 
       </View>
     </ScrollView>
