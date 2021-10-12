@@ -9,7 +9,7 @@ const ValueToScreen = () => {
   const dataEmpty = {userClasses:  []};
 
   return (
-    <ValueProvider value={dataFilled}>
+    <ValueProvider value={dataEmpty}>
         <StackScreens />
     </ValueProvider>
   )

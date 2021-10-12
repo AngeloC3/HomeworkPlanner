@@ -48,7 +48,7 @@ const buttonstyles = StyleSheet.create({
     flex: 1,
   },
   buttons: {
-    flex: 1,
+    flex: .5,
     flexDirection: 'row',
     margin: 8,
     padding: 8,

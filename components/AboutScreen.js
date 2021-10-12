@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Button, SectionList, } from 'react-native';
+import { StyleSheet, Text, View, Button, SectionList, ScrollView} from 'react-native';
 
 import styles, {textstyles , liststyles} from './stylesheet.js';
 import NavButtons from './NavigationButtons.js';
@@ -33,26 +33,28 @@ const Item = ({ title }) => (
 const AboutScreen = ({ navigation }) => {
   return (
 
-    <View style={styles.container}>
+    <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
+      <View style={styles.container}>
 
-      <View style={textstyles.title}>
-          <Text style={textstyles.titleText}
-                adjustsFontSizeToFit={true}
-                numberOfLines={1}
-                >
-            About Homework Planner
-          </Text>
-      </View>
-
-      <View style={liststyles.listBody}>
-        <View style={liststyles.listBody}>
-          <Lists />
+        <View style={textstyles.title}>
+            <Text style={textstyles.titleText}
+                  adjustsFontSizeToFit={true}
+                  numberOfLines={1}
+                  >
+              About Homework Planner
+            </Text>
         </View>
+
+        <View style={liststyles.listBody}>
+          <View style={liststyles.listBody}>
+            <Lists />
+          </View>
+        </View>
+
+        <NavButtons navigation={navigation} />
+
       </View>
-
-      <NavButtons navigation={navigation} />
-
-    </View>
+    </ScrollView>
 
   )
 }

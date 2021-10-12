@@ -36,3 +36,15 @@ export const storeClassesData = async (value) => {
         // saving error
     }
 }
+
+export const clearAll = async () => {
+        try {
+          console.log('Clearing data')
+          await AsyncStorage.clear()
+          console.log('Cleared data')
+        } catch(e) {
+          console.log("error in clearData ")
+          console.dir(e)
+          // clear error
+        }
+  }
