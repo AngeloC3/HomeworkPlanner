@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const getClassesData = async ({userClasses}) => {
       try {
-        const jsonValue = await AsyncStorage.getItem('@user_info')
+        const jsonValue = await AsyncStorage.getItem('@user_classes')
         let data = null
         if (jsonValue!=null) {
           data = JSON.parse(jsonValue)
@@ -28,7 +28,7 @@ export const getClassesData = async ({userClasses}) => {
 export const storeClassesData = async (value) => {
       try {
       const jsonValue = JSON.stringify(value)
-        await AsyncStorage.setItem('@user_info', jsonValue)
+        await AsyncStorage.setItem('@user_classes', jsonValue)
         console.log('just stored '+jsonValue)
       } catch (e) {
         console.log("error in storeData ")

@@ -20,7 +20,7 @@ const DeleteClass = ({navigation}) => {
 
   const getClassesDataSameFileTest = async () => {
         try {
-          const jsonValue = await AsyncStorage.getItem('@user_info')
+          const jsonValue = await AsyncStorage.getItem('@user_classes')
           let data = null
           if (jsonValue!=null) {
             data = JSON.parse(jsonValue)
@@ -111,7 +111,7 @@ const DeleteClass = ({navigation}) => {
                               ]
                             );
                           }
-                          if (Platform.OS === 'web') { // This is because Alert doesnt show on web
+                          else { // This is because Alert doesnt show on web
                             const index = classState.indexOf(userClass.item);
                             console.log("Index: " + index);
                             console.log("ClassState[i]: " + JSON.stringify(classState[index]));

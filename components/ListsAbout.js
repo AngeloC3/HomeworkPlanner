@@ -9,12 +9,11 @@ const aboutBullets = [
                       'This app has not yet been completed',
                     ];
 const futureBullets = [
-                        'Adding classes',
-                        'Moifying homework data for those classes',
+                        'Moifying homework data for classes',
                         'Viewing your homework on a calender',
                         'Viewing your homework in a class by class screen',
                         'Add settings to further customize the experience',
-                        'Potentially change the buttons on the bottom to a tab navigatior',
+                        'Maybe combining add and delete class to one screen'
                       ];
 
 const ListsAbout = () => {
@@ -37,7 +36,7 @@ const ListsAbout = () => {
                </View>
              );
            }}
-           keyExtractor={(aboutBullets) => aboutBullets.id}
+           keyExtractor={(aboutBullets) => aboutBullets.toString()}
          />
       </View>
       <View style={listwrap.innerList}>
@@ -56,7 +55,7 @@ const ListsAbout = () => {
                </View>
              );
            }}
-            keyExtractor={(aboutBullets) => aboutBullets.id}
+            keyExtractor={(aboutBullets) => aboutBullets.toString()}
          />
       </View>
    </View>

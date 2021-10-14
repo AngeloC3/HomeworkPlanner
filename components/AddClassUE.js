@@ -23,7 +23,7 @@ const AddClass = ({navigation}) => {
 
   const getClassesDataSameFileTest = async () => {
         try {
-          const jsonValue = await AsyncStorage.getItem('@user_info')
+          const jsonValue = await AsyncStorage.getItem('@user_classes')
           let data = null
           if (jsonValue!=null) {
             data = JSON.parse(jsonValue)

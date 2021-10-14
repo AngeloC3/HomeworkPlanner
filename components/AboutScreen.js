@@ -4,25 +4,6 @@ import { Text, View, Button, SectionList, ScrollView} from 'react-native';
 import styles, {textstyles , liststyles} from './stylesheet.js';
 import Lists from './ListsAbout.js';
 
-const bullets = [
-  {
-    title: 'About this app',
-    data: ['This app was made by Angelo Cataldo',
-            'This app was started on September 24th, 2021',
-            'This app has not yet been completed',
-          ]
-  },
-  {
-    title: 'To be implemented',
-    data: ['Adding classes',
-            'Moifying homework data for those classes',
-            'Viewing your homework on a calender',
-            'Viewing your homework in a class by class screen',
-            'Add settings to further customize the experience'
-          ]
-  },
-];
-
 const Item = ({ title }) => (
   <View style={liststyles.listBox}>
     <Text style={liststyles.listText}> {title} </Text>
