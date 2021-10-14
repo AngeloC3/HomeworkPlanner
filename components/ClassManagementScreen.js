@@ -1,63 +1,64 @@
 import * as React from 'react';
-import { useState , } from 'react';
-import { Text, View,ScrollView, Button, StyleSheet, TouchableOpacity} from 'react-native';
+import { Text, View,ScrollView, Button, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native';
 
 import styles, { textstyles , skyBlue, touchstyles } from './stylesheet.js';
-import AddClassUE from  './AddClassUE.js';
+import SafeViewAndroid from "./SafeViewAndroid";
 
 const ClassManagementScreen = ({ navigation }) => {
 
   return (
 
-    <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
-      <View style={styles.container}>
-      
-        <View style={textstyles.title}>
-            <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Class Management </Text>
-        </View>
+    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.container}>
 
-        <View style={managestyles.box}>
+          <View style={textstyles.title}>
+              <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Class Management </Text>
+          </View>
+
+          <View style={managestyles.box}>
 
           <View style={{flex:1}}>
             <View style={managestyles.indi}>
               <TouchableOpacity
                 style={touchstyles.touch}
                 onPress={() =>
-                  navigation.navigate('Add Class')}
+                  navigation.navigate('View Classes')}
                 >
-                <Text style={textstyles.titleText}> Add Class </Text>
+                <Text style={textstyles.titleText}> View Classes </Text>
               </TouchableOpacity>
             </View>
           </View>
 
-          <View style={{flex:1}}>
-            <View style={managestyles.indi}>
-              <TouchableOpacity
-                style={touchstyles.touch}
-                >
-                <Text style={textstyles.titleText} adjustsFontSizeToFit={true}>
-                  Modify Class (not yet implemented)
-                </Text>
-              </TouchableOpacity>
+            <View style={{flex:1}}>
+              <View style={managestyles.indi}>
+                <TouchableOpacity
+                  style={touchstyles.touch}
+                  onPress={() =>
+                    navigation.navigate('Add/Delete Class')}
+                  >
+                  <Text style={textstyles.titleText}> Add and Delete Classes </Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
 
-          <View style={{flex:1}}>
-            <View style={managestyles.indi}>
-              <TouchableOpacity
-                style={touchstyles.touch}
-                onPress={() =>
-                  navigation.navigate('Delete Class')}
-                >
-                <Text style={textstyles.titleText}> Delete Class </Text>
-              </TouchableOpacity>
+            <View style={{flex:1}}>
+              <View style={managestyles.indi}>
+                <TouchableOpacity
+                  style={touchstyles.touch}
+                  >
+                  <Text style={textstyles.titleText} adjustsFontSizeToFit={true}>
+                    Modify Class (not yet implemented)
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
+
           </View>
 
         </View>
-
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
 
   )
 }

@@ -1,45 +1,36 @@
 import React, {useState} from 'react';
-import {Text, View, FlatList, Button} from 'react-native';
+import {Text, View, FlatList, Button, StyleSheet} from 'react-native';
 
 import styles, { liststyles , } from './stylesheet.js';
 
 const SimpleClassesList = ({state}) => {
   let debugging = false;
-  let temp = state;
 
   return (
 
     <View style={styles.container}>
 
-      {debugging === true &&
-        <View>
-          <Button
-            color = 'blue'
-            title = 'temp=?'
-            onPress={() => {
-                console.log(temp == "");
-             }}
-            />
-        </View>
-      }
-
       <View style={{flex:10}}>
         <View style={liststyles.listBody}>
-          {temp != "" ?
+          {state != "" ?
             <FlatList
-              data={temp}
+              data={state}
               renderItem={(userClass) => {
                 return (
                   <View style={liststyles.listBox}>
-                    <Text style={liststyles.listText}>{userClass.item.name} </Text>
+                    <Text style={classliststyles.listTitleText}>{userClass.item.name} </Text>
+                    {userClass.item.homework != "" ?
+                      <Text style={classliststyles.listText}>Homework: {userClass.item.homework} </Text> :
+                      <Text style={classliststyles.listText}>Homework: None </Text>
+                     }
                   </View>
                 );
               }}
               keyExtractor={(userClass) => userClass.name}
             />
           : <View style={liststyles.listBox}>
-              <Text style={{alignSelf:'center', justifyContent:'center', fontSize:40,}}>
-                No classes added yet
+              <Text style={liststyles.emptyListText}>
+                No current classes
               </Text>
             </View>
           }
@@ -50,5 +41,19 @@ const SimpleClassesList = ({state}) => {
    </View>
    )
 }
+
+const classliststyles = StyleSheet.create({
+  listTitleText: {
+    color: 'black',
+    textAlign: 'center',
+    fontSize: 36,
+    fontWeight: 'bold',
+  },
+  listText: {
+    color: "black",
+    textAlign: "center",
+    fontSize: 30,
+  },
+});
 
 export default SimpleClassesList

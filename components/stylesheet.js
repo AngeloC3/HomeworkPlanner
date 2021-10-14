@@ -72,6 +72,11 @@ export const liststyles = StyleSheet.create({
     alignItems: 'stretch',
     flexDirection: 'row',
   },
+  emptyListText: {
+    alignSelf:'center',
+    justifyContent:'center',
+    fontSize:50,
+  }
 });
 
 export const listwrap = StyleSheet.create({
