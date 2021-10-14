@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Image, ScrollView, SafeAreaView} from 'react-native';
+import { Text, View, Image, ScrollView, } from 'react-native';
 
 import styles, {textstyles} from './stylesheet.js';
 import SafeViewAndroid from "./SafeViewAndroid";
@@ -7,7 +7,6 @@ import SafeViewAndroid from "./SafeViewAndroid";
 const HomeScreen = ({ navigation }) => {
   return (
 
-    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}>
 
@@ -23,7 +22,6 @@ const HomeScreen = ({ navigation }) => {
 
         </View>
       </ScrollView>
-    </SafeAreaView>
 
   )
 }

@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { useState , } from 'react';
-import { Text, View, TextInput, ScrollView, SafeAreaView} from 'react-native';
+import { Text, View, TextInput, ScrollView, } from 'react-native';
 
 import styles, { textstyles , liststyles} from './stylesheet.js';
-import SafeViewAndroid from "./SafeViewAndroid";
 
 const SettingsScreen = ({ navigation }) => {
   const [firstName,setFirstName] = useState("");
@@ -11,7 +10,6 @@ const SettingsScreen = ({ navigation }) => {
 
   return (
 
-    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}>
 
@@ -43,7 +41,6 @@ const SettingsScreen = ({ navigation }) => {
 
         </View>
       </ScrollView>
-    </SafeAreaView>
 
   )
 }

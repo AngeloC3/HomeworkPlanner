@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import {Text, View, TextInput, FlatList, ScrollView, SafeAreaView} from 'react-native';
+import {Text, View, TextInput, FlatList, ScrollView, } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles, { textstyles , liststyles , } from './stylesheet.js';
@@ -7,7 +7,6 @@ import Class from './Class.js'
 import ClassListUE from './SimpleClassesListUE.js';
 import {getClassesData , storeClassesData, } from './AsyncStore.js'
 import GoBack from './GoBack.js';
-import SafeViewAndroid from "./SafeViewAndroid";
 
 
 const ViewClasses = ({navigation}) => {
@@ -41,7 +40,6 @@ const ViewClasses = ({navigation}) => {
 
   return (
 
-    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}>
 
@@ -66,7 +64,6 @@ const ViewClasses = ({navigation}) => {
 
        </View>
       </ScrollView>
-    </SafeAreaView>
 
    )
 }

@@ -1,8 +1,10 @@
 import * as React from 'react';
+import { SafeAreaView} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Ionicons from 'react-native-vector-icons/Ionicons'; // https://ionic.io/ionicons
+import SafeViewAndroid from "./SafeViewAndroid";
 
 //import { } from 'react-native';
 import HomeScreen from './HomeScreen.js';
@@ -14,6 +16,7 @@ const Tab = createBottomTabNavigator();
 
 const StackScreens = () => {
   return (
+    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
     <NavigationContainer>
       <Tab.Navigator screenOptions={{ headerShown: false,
                                       tabBarActiveTintColor: 'blue',
@@ -52,6 +55,7 @@ const StackScreens = () => {
         />
       </Tab.Navigator>
     </NavigationContainer>
+    </SafeAreaView>
   );
 };
 

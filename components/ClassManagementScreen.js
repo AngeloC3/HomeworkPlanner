@@ -1,14 +1,12 @@
 import * as React from 'react';
-import { Text, View,ScrollView, Button, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native';
+import { Text, View,ScrollView, Button, StyleSheet, TouchableOpacity,} from 'react-native';
 
 import styles, { textstyles , skyBlue, touchstyles } from './stylesheet.js';
-import SafeViewAndroid from "./SafeViewAndroid";
 
 const ClassManagementScreen = ({ navigation }) => {
 
   return (
 
-    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}>
 
@@ -58,7 +56,6 @@ const ClassManagementScreen = ({ navigation }) => {
 
         </View>
       </ScrollView>
-    </SafeAreaView>
 
   )
 }

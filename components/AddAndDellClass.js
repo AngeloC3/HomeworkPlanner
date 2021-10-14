@@ -1,5 +1,5 @@
 import React, { useState, useRef , useEffect} from 'react';
-import {Text, View, TextInput, FlatList, Button, SafeAreaView,
+import {Text, View, TextInput, FlatList, Button, 
         TouchableOpacity, Alert, Platform, ScrollView, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -7,7 +7,6 @@ import styles, { textstyles , liststyles , skyBlue, touchstyles} from './stylesh
 import Class from './Class.js'
 import {getClassesData , storeClassesData, } from './AsyncStore.js'
 import GoBack from './GoBack.js';
-import SafeViewAndroid from "./SafeViewAndroid";
 
 const AddAndDellClass = ({navigation}) => {
   let debugging = false;
@@ -45,7 +44,6 @@ const AddAndDellClass = ({navigation}) => {
 
   return (
 
-    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}>
 
@@ -190,7 +188,6 @@ const AddAndDellClass = ({navigation}) => {
 
        </View>
       </ScrollView>
-    </SafeAreaView>
 
    )
 }
