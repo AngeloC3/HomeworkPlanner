@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Text, View, FlatList, Button, StyleSheet} from 'react-native';
 
-import styles, { liststyles , } from './stylesheet.js';
+import {styles, liststyles , } from './stylesheet.js';
 
 const SimpleClassesList = ({state}) => {
   let debugging = false;

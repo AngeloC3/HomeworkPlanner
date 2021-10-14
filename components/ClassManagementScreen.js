@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View,ScrollView, Button, StyleSheet, TouchableOpacity,} from 'react-native';
 
-import styles, { textstyles , skyBlue, touchstyles } from './stylesheet.js';
+import {styles, textstyles , skyBlue, touchstyles } from './stylesheet.js';
 
 const ClassManagementScreen = ({ navigation }) => {
 

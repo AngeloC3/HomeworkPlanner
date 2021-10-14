@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, Button, FlatList, } from 'react-native';
 
-import styles, { liststyles, listwrap } from '../components/stylesheet.js';
+import {styles, liststyles, listwrap } from '../components/stylesheet.js';
 
 const aboutBullets = [
                       'This app was made by Angelo Cataldo',
@@ -13,7 +13,6 @@ const futureBullets = [
                         'Viewing your homework on a calender',
                         'Viewing your homework in a class by class screen',
                         'Add settings to further customize the experience',
-                        'Maybe combining add and delete class to one screen'
                       ];
 
 const ListsAbout = () => {

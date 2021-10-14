@@ -5,24 +5,24 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // The get and save data functions are from
 // https://github.com/tjhickey724/cs153aFall21/blob/main/components/Profile.js
 
-export const getClassesData = async ({userClasses}) => {
-      try {
-        const jsonValue = await AsyncStorage.getItem('@user_classes')
-        let data = null
-        if (jsonValue!=null) {
-          data = JSON.parse(jsonValue)
-          userClasses = data.userClasses
-          console.log('just set userClasses: ' + JSON.stringify(data.userClasses))
-        } else {
-          console.log('just read a null value from Storage')
-        }
+export const getClassesData = async (setClassState) => {
+  try {
+    const jsonValue = await AsyncStorage.getItem('@user_classes')
+    let data = null
+    if (jsonValue!=null) {
+      data = JSON.parse(jsonValue)
+      setClassState(data.userClasses)
+      console.log('just set userClasses: ' + JSON.stringify(data.userClasses))
+    } else {
+      console.log('just read a null value from Storage')
+    }
 
 
-      } catch(e) {
-        console.log("error in getData ")
-        console.dir(e)
-        // error reading value
-      }
+  } catch(e) {
+    console.log("error in getData ")
+    console.dir(e)
+    // error reading value
+  }
 }
 
 export const storeClassesData = async (value) => {

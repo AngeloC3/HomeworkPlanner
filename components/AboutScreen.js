@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, Button, SectionList, ScrollView, } from 'react-native';
 
-import styles, {textstyles , liststyles} from './stylesheet.js';
+import {styles, textstyles , liststyles} from './stylesheet.js';
 import Lists from './ListsAbout.js';
 
 const Item = ({ title }) => (

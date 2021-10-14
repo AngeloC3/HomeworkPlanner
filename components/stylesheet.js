@@ -4,7 +4,7 @@ import { StyleSheet, } from 'react-native';
 export const darkModeColor = '#444444';
 export const skyBlue = "#87CEEB";
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: darkModeColor,
@@ -107,5 +107,3 @@ export const touchstyles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-export default styles

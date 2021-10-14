@@ -1,9 +1,9 @@
 import React, { useState, useRef , useEffect} from 'react';
-import {Text, View, TextInput, FlatList, Button, 
+import {Text, View, TextInput, FlatList, Button,
         TouchableOpacity, Alert, Platform, ScrollView, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import styles, { textstyles , liststyles , skyBlue, touchstyles} from './stylesheet.js';
+import {styles, textstyles , liststyles , skyBlue, touchstyles} from './stylesheet.js';
 import Class from './Class.js'
 import {getClassesData , storeClassesData, } from './AsyncStore.js'
 import GoBack from './GoBack.js';
@@ -17,30 +17,8 @@ const AddAndDellClass = ({navigation}) => {
   const [addedNull, setAddedNull] = useState(false);
   const inputRef = useRef();
 
-  // useEffect(() => {getClassesData({userClasses})}
-  //         ,[])
-  useEffect(() => {getClassesDataSameFileTest()}
+  useEffect(() => {getClassesData(setClassState)}
           ,[])
-
-  const getClassesDataSameFileTest = async () => {
-        try {
-          const jsonValue = await AsyncStorage.getItem('@user_classes')
-          let data = null
-          if (jsonValue!=null) {
-            data = JSON.parse(jsonValue)
-            setClassState(data.userClasses)
-            console.log('just set userClasses: ' + JSON.stringify(data.userClasses))
-          } else {
-            console.log('just read a null value from Storage')
-          }
-
-
-        } catch(e) {
-          console.log("error in getData ")
-          console.dir(e)
-          // error reading value
-        }
-  }
 
   return (
 
@@ -92,23 +70,7 @@ const AddAndDellClass = ({navigation}) => {
                                 [
                                   {
                                     text: "Yes", onPress: () => {
-                                      const index = classState.indexOf(userClass.item);
-                                      console.log("Index: " + index);
-                                      console.log("ClassState[i]: " + JSON.stringify(classState[index]));
-                                        if (index >= 0) {
-                                          classState.splice(index, 1);
-                                          setClassState(classState);
-                                          console.log('Splicing')
-                                        }
-                                      console.log("classState: " + JSON.stringify(classState));
-                                      const userInfo = {userClasses:classState};
-                                      console.log('data='+JSON.stringify(userInfo));
-                                      storeClassesData(userInfo)
-                                      if (key === 'refresha') {
-                                        setKey('refreshb');
-                                      } else {
-                                        setKey('refresha');
-                                      }
+                                      delClass(classState, userClass, setClassState, key, setKey);
                                     }
                                   },
                                   { text: "No", }
@@ -116,23 +78,7 @@ const AddAndDellClass = ({navigation}) => {
                               );
                             }
                             else { // This is because Alert doesnt show on web
-                              const index = classState.indexOf(userClass.item);
-                              console.log("Index: " + index);
-                              console.log("ClassState[i]: " + JSON.stringify(classState[index]));
-                                if (index >= 0) {
-                                  classState.splice(index, 1);
-                                  setClassState(classState);
-                                  console.log('Splicing')
-                                }
-                              console.log("classState: " + JSON.stringify(classState));
-                              const userInfo = {userClasses:classState};
-                              console.log('data='+JSON.stringify(userInfo));
-                              storeClassesData(userInfo)
-                              if (key === 'refresha') {
-                                setKey('refreshb');
-                              } else {
-                                setKey('refresha');
-                              }
+                              delClass(classState, userClass, setClassState, key, setKey);
                             }
                             }}
                           >
@@ -166,20 +112,8 @@ const AddAndDellClass = ({navigation}) => {
                 <TouchableOpacity
                   style={addstyles.touch}
                   onPress={() => {
-                    console.log("class2add: " + class2Add)
-                     if (class2Add !== null && class2Add !== "") {
-                       classState.push(new Class(class2Add))
-                       setClassState(classState);
-                       inputRef.current.clear();
-                       setClass2Add(null);
-                       setAddedNull(false);
-                     } else{
-                       setAddedNull(true);
-                     }
-                     const userInfo = {userClasses:classState};
-                     console.log('data='+JSON.stringify(userInfo));
-                     storeClassesData(userInfo)
-                        }}
+                    addClass(class2Add, classState, setClassState, inputRef, setClass2Add, setAddedNull);
+                    }}
                   >
                   <Text style={liststyles.listText} adjustsFontSizeToFit={true}> Add this new class! </Text>
                 </TouchableOpacity>
@@ -190,6 +124,42 @@ const AddAndDellClass = ({navigation}) => {
       </ScrollView>
 
    )
+}
+
+function addClass(class2Add, classState, setClassState, inputRef, setClass2Add, setAddedNull) {
+  console.log("class2add: " + class2Add)
+   if (class2Add !== null && class2Add !== "") {
+     classState.push(new Class(class2Add))
+     setClassState(classState);
+     inputRef.current.clear();
+     setClass2Add(null);
+     setAddedNull(false);
+   } else{
+     setAddedNull(true);
+   }
+   const userInfo = {userClasses:classState};
+   console.log('data='+JSON.stringify(userInfo));
+   storeClassesData(userInfo)
+}
+
+function delClass(classState, userClass, setClassState, key, setKey) {
+  const index = classState.indexOf(userClass.item);
+  console.log("Index: " + index);
+  console.log("ClassState[i]: " + JSON.stringify(classState[index]));
+    if (index >= 0) {
+      classState.splice(index, 1);
+      setClassState(classState);
+      console.log('Splicing')
+    }
+  console.log("classState: " + JSON.stringify(classState));
+  const userInfo = {userClasses:classState};
+  console.log('data='+JSON.stringify(userInfo));
+  storeClassesData(userInfo)
+  if (key === 'refresha') {
+    setKey('refreshb');
+  } else {
+    setKey('refresha');
+  }
 }
 
 const addstyles = StyleSheet.create({
