@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "CPA1",
-    "slug": "CPA1",
+    "name": "Homework Planner",
+    "slug": "Homework Planner",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
