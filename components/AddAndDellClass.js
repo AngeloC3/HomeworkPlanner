@@ -3,18 +3,17 @@ import {Text, View, TextInput, FlatList, Button,
         TouchableOpacity, Alert, Platform, ScrollView, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {styles, textstyles , liststyles , skyBlue, touchstyles} from './stylesheet.js';
+import {styles, textstyles , liststyles , skyBlue, touchstyles, addstyles} from './stylesheet.js';
 import Class from './Class.js'
 import {getClassesData , storeClassesData, } from './AsyncStore.js'
 import GoBack from './GoBack.js';
 
 const AddAndDellClass = ({navigation}) => {
-  let debugging = false;
+  const debugging = false;
+  const delAll = false;
   const [classState, setClassState] = useState([]);
   const [key, setKey] = useState('refresha');
-  let isSure = true;
   const [class2Add, setClass2Add] = useState(null);
-  const [addedNull, setAddedNull] = useState(false);
   const inputRef = useRef();
 
   useEffect(() => {getClassesData(setClassState)}
@@ -37,19 +36,9 @@ const AddAndDellClass = ({navigation}) => {
             </View>
           }
 
-          <View style={{flexDirection:'row'}}>
-
-            <View style={{width:'33.33%'}}>
-              <GoBack navigation={navigation}/>
-            </View>
-
-            <View style={{width:'66.67%'}}>
               <View style={textstyles.title}>
                   <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Your Classes </Text>
               </View>
-            </View>
-
-          </View>
 
           <View style={{flex:10}}>
             <View style={liststyles.listBody}>
@@ -112,7 +101,7 @@ const AddAndDellClass = ({navigation}) => {
                 <TouchableOpacity
                   style={addstyles.touch}
                   onPress={() => {
-                    addClass(class2Add, classState, setClassState, inputRef, setClass2Add, setAddedNull);
+                    addClass(class2Add, classState, setClassState, inputRef, setClass2Add);
                     }}
                   >
                   <Text style={liststyles.listText} adjustsFontSizeToFit={true}> Add this new class! </Text>
@@ -120,22 +109,45 @@ const AddAndDellClass = ({navigation}) => {
 
           </View>
 
+          {delAll === true &&
+            <Button
+              color = 'blue'
+              title = 'Delete All Classes'
+              onPress={() => {
+                if (Platform.OS !== "web") {
+                  Alert.alert(
+                    "Confirm",
+                    "Are you sure you wish to delete all your classes?",
+                    [
+                      {
+                        text: "Yes", onPress: () => {
+                          clearClasses(key, setKey, classState, setClassState);
+                        }
+                      },
+                      { text: "No", }
+                    ]
+                  );
+                }
+                else { // This is because Alert doesnt show on web
+                  clearClasses(key, setKey, classState, setClassState);
+                }
+               }}
+              />
+          }
+
        </View>
       </ScrollView>
 
    )
 }
 
-function addClass(class2Add, classState, setClassState, inputRef, setClass2Add, setAddedNull) {
+function addClass(class2Add, classState, setClassState, inputRef, setClass2Add) {
   console.log("class2add: " + class2Add)
    if (class2Add !== null && class2Add !== "") {
      classState.push(new Class(class2Add))
      setClassState(classState);
      inputRef.current.clear();
      setClass2Add(null);
-     setAddedNull(false);
-   } else{
-     setAddedNull(true);
    }
    const userInfo = {userClasses:classState};
    console.log('data='+JSON.stringify(userInfo));
@@ -162,45 +174,17 @@ function delClass(classState, userClass, setClassState, key, setKey) {
   }
 }
 
-const addstyles = StyleSheet.create({
-  box: {
-    flex: 1,
-    flexDirection: 'row',
-    margin: 8,
-    padding: 8,
-    borderWidth: 4,
-    borderColor: "black",
-    borderRadius: 10,
-    backgroundColor: skyBlue,
-    alignItems: 'stretch',
-    justifyContent: 'space-around',
-  },
-  indi: {
-    flex: 1,
-    alignSelf: 'stretch',
-    justifyContent: 'space-around',
-    borderColor: "black",
-    borderRadius: 10,
-  },
-  input: {
-    height: 40,
-    margin: 10,
-    borderWidth: 3,
-    padding: 10,
-    backgroundColor: 'lightblue',
-  },
-  touch: {
-    flex: 1,
-    flexDirection: 'column',
-    margin: 2,
-    padding: 2,
-    borderWidth: 4,
-    borderColor: "black",
-    borderRadius: 10,
-    backgroundColor: 'lightblue',
-    justifyContent: 'center',
-    alignSelf: 'stretch',
-  },
-});
+function clearClasses(key, setKey, classState, setClassState) {
+  setClassState([]);
+  const userInfo = {userClasses:classState};
+  console.log('data='+JSON.stringify(userInfo));
+  storeClassesData(userInfo)
+  if (key === 'refresha') {
+    setKey('refreshb');
+  } else {
+    setKey('refresha');
+  }
+}
+
 
 export default AddAndDellClass

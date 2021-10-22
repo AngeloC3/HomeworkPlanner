@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Text, View, Image, ScrollView, } from 'react-native';
 
 import { styles, textstyles} from './stylesheet.js';
-import SafeViewAndroid from "./SafeViewAndroid";
 
 const HomeScreen = ({ navigation }) => {
   return (

@@ -44,9 +44,11 @@ const ClassManagementScreen = ({ navigation }) => {
               <View style={managestyles.indi}>
                 <TouchableOpacity
                   style={touchstyles.touch}
+                  onPress={() =>
+                    navigation.navigate('Modify Classes')}
                   >
                   <Text style={textstyles.titleText} adjustsFontSizeToFit={true}>
-                    Modify Class (not yet implemented)
+                    Modify Class (not fully implemented)
                   </Text>
                 </TouchableOpacity>
               </View>

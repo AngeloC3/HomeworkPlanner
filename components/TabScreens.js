@@ -18,7 +18,7 @@ const StackScreens = () => {
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{ headerShown: false,
+      <Tab.Navigator screenOptions={{
                                       tabBarActiveTintColor: 'blue',
                                       tabBarInactiveTintColor: 'black',
                                       tabBarActiveBackgroundColor: "#87ceeb",
@@ -34,6 +34,7 @@ const StackScreens = () => {
         />
         <Tab.Screen name="Class Management" component={StackCMScreens}
             options={() => ({
+            headerShown: false,
             tabBarIcon: () => {
               return <Ionicons name="create" />;
             },

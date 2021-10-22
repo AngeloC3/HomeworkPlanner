@@ -6,17 +6,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ClassManagementScreen from './ClassManagementScreen.js';
 import AddAndDellClass from './AddAndDellClass.js';
 import ViewClasses from './ViewClasses.js';
+import ModifyClassScreen from './ModifyClassScreen.js';
+import ModifyHomeworkScreen from './ModifyHomeworkScreen.js';
 
 const Stack = createNativeStackNavigator();
 
 const StackCMScreens = () => {
   return (
-      <Stack.Navigator initialRouteName="Class Management"
-      screenOptions={{headerShown: false}}
+      <Stack.Navigator initialRouteName="Manage Classes"
       >
 
         <Stack.Screen
-          name="Class Management"
+          name="Manage Classes"
           component={ClassManagementScreen}
         />
 
@@ -28,6 +29,16 @@ const StackCMScreens = () => {
         <Stack.Screen
           name="View Classes"
           component={ViewClasses}
+        />
+
+        <Stack.Screen
+          name="Modify Classes"
+          component={ModifyClassScreen}
+        />
+
+        <Stack.Screen
+          name="Modify Homework"
+          component={ModifyHomeworkScreen}
         />
 
       </Stack.Navigator>

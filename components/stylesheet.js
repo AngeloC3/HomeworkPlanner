@@ -107,3 +107,44 @@ export const touchstyles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export const addstyles = StyleSheet.create({
+  box: {
+    flex: 1,
+    flexDirection: 'row',
+    margin: 8,
+    padding: 8,
+    borderWidth: 4,
+    borderColor: "black",
+    borderRadius: 10,
+    backgroundColor: skyBlue,
+    alignItems: 'stretch',
+    justifyContent: 'space-around',
+  },
+  indi: {
+    flex: 1,
+    alignSelf: 'stretch',
+    justifyContent: 'space-around',
+    borderColor: "black",
+    borderRadius: 10,
+  },
+  input: {
+    height: 40,
+    margin: 10,
+    borderWidth: 3,
+    padding: 10,
+    backgroundColor: 'lightblue',
+  },
+  touch: {
+    flex: 1,
+    flexDirection: 'column',
+    margin: 2,
+    padding: 2,
+    borderWidth: 4,
+    borderColor: "black",
+    borderRadius: 10,
+    backgroundColor: 'lightblue',
+    justifyContent: 'center',
+    alignSelf: 'stretch',
+  },
+});

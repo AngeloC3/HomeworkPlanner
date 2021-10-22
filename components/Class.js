@@ -13,7 +13,7 @@ export default class Class {
     }
 
     addHomework(string, dueDate = null) {
-      if (dueDate = '') {
+      if (dueDate === '') {
         dueDate = null;
       }
       this.homework.push([string,dueDate])
@@ -21,14 +21,12 @@ export default class Class {
 
     delHomework(index) {
       if (index >= 0 && index < this.homework.length) {
-        let tempArr = [];
-        for (let i = 0; i < this.homework.length; i++) {
-          if (i != index) {
-            tempArr.push(this.homework[i]);
-          }
-        }
-        this.homework = tempArr;
+        this.homework.splice(index, 1);
       }
+    }
+
+    clearHomework() {
+      this.homework = [];
     }
 
     defChangeDate(hwIndex, dueDate) {
@@ -37,4 +35,13 @@ export default class Class {
       }
     }
 
+}
+
+export function prettyHW(homework) {
+  console.log(homework[1]);
+  if (homework[1] == null) {
+    return homework[0];
+  } else {
+    return homework[0] + ' due @ ' + homework[1]
+  }
 }
