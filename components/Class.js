@@ -42,6 +42,6 @@ export function prettyHW(homework) {
   if (homework[1] == null) {
     return homework[0];
   } else {
-    return homework[0] + ' due @ ' + homework[1]
+    return homework[0] + ' due on ' + homework[1]
   }
 }

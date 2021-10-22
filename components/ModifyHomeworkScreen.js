@@ -1,15 +1,17 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { Text, View, ScrollView, FlatList, TouchableOpacity, Button,
           TextInput, StyleSheet, Platform, Alert } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { styles, textstyles, liststyles, touchstyles, addstyles, skyBlue} from './stylesheet.js';
 import GoBack from './GoBack.js';
 import Class , { prettyHW } from './Class.js';
-import { storeClassesData, } from './AsyncStore.js'
+import { storeClassesData, } from './AsyncStore.js';
+import date2String from './DateToPrettyString.js';
 
 const ModifyClassScreen = ({ route, navigation }) => {
   const debugging = false;
-  const delAll = true;
+  const delAll = false;
   const { userClass } = route.params;
   const { index } = route.params;
   const { tempState } = route.params;
@@ -17,9 +19,32 @@ const ModifyClassScreen = ({ route, navigation }) => {
   const [chosenClass, setChosenClass] = useState(new Class(userClass.item.name, userClass.item.homework));
   const [key, setKey] = useState('refresha');
   const inputRef = useRef();
-  const inputRef2 = useRef();
   const [hw2Add, setHW2Add] = useState(null);
   const [date2Add, setDate2Add] = useState(null);
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+
+ // Code taken from https://github.com/react-native-datetimepicker/datetimepicker#getting-started
+  const onChange = (event, selectedDate) => {
+   const currentDate = selectedDate || date;
+   setShow(Platform.OS === 'ios');
+   setDate2Add(date2String(currentDate));
+   setDate(currentDate);
+ };
+
+ const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode('date');
+  };
+
+  const showTimepicker = () => {
+    showMode('time');
+  };
 
   return (
 
@@ -63,7 +88,7 @@ const ModifyClassScreen = ({ route, navigation }) => {
                             if (Platform.OS !== "web") {
                               Alert.alert(
                                 "Confirm",
-                                "Are you sure you wish to delete " + {homework} + "?",
+                                "Are you sure you wish to delete " + prettyHW(homework.item) + "?",
                                 [
                                   {
                                     text: "Yes", onPress: () => {
@@ -111,19 +136,36 @@ const ModifyClassScreen = ({ route, navigation }) => {
                   />
               </View>
               <View style={{flex:3, alignItems:'stretch', justifyContent:'center'}}>
-                <TextInput
-                      ref={inputRef2}
-                      style={addstyles.input}
-                      placeholder = 'Due date (blank for none)'
-                      onChangeText={text => { setDate2Add(text) }}
-                  />
+                <View>
+                  <View>
+                    <Button onPress={showDatepicker} title="Select a date!" />
+                  </View>
+                  <View>
+                    <Button onPress={showTimepicker} title="Select the time!" />
+                  </View>
+                  {show && (
+                    <DateTimePicker
+                      testID="dateTimePicker"
+                      value={date}
+                      mode={mode}
+                      is24Hour={true}
+                      display="default"
+                      onChange={onChange}
+                      minimumDate={new Date()}
+                      is24Hour={false}
+                    />
+                  )}
+                </View>
               </View>
+              <Text>
+                {date2Add}
+              </Text>
             </View>
 
               <TouchableOpacity
                 style={addstyles.touch}
                 onPress={() => {
-                  addHomework(chosenClass, setChosenClass, hw2Add, date2Add, inputRef, inputRef2,
+                  addHomework(chosenClass, setChosenClass, hw2Add, date2Add, inputRef,
                                         setHW2Add, setDate2Add, classState, setClassState, index);
                   }}
                 >
@@ -164,15 +206,14 @@ const ModifyClassScreen = ({ route, navigation }) => {
   )
 }
 
-function addHomework(chosenClass, setChosenClass, hw2Add, date2Add, inputRef, inputRef2,
+function addHomework(chosenClass, setChosenClass, hw2Add, date2Add, inputRef,
                       setHW2Add, setDate2Add, classState, setClassState, index) {
    if (hw2Add !== null && hw2Add !== "") {
-     chosenClass.addHomework(hw2Add,date2Add)
+     chosenClass.addHomework(hw2Add.trim(),date2Add);
      console.log('b4: ' + JSON.stringify(classState));
      classState.splice(index, 1, chosenClass);
      console.log('Af: ' + JSON.stringify(classState));
      inputRef.current.clear();
-     inputRef2.current.clear();
      setHW2Add(null);
      setDate2Add(null);
      setChosenClass(chosenClass);

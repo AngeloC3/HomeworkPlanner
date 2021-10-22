@@ -48,7 +48,7 @@ const ClassManagementScreen = ({ navigation }) => {
                     navigation.navigate('Modify Classes')}
                   >
                   <Text style={textstyles.titleText} adjustsFontSizeToFit={true}>
-                    Modify Class (not fully implemented)
+                    Modify Classes
                   </Text>
                 </TouchableOpacity>
               </View>

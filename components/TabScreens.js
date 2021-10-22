@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SafeAreaView} from 'react-native';
+import { SafeAreaView, LogBox} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -15,6 +15,7 @@ import SettingsScreen from './SettingsScreen.js';
 const Tab = createBottomTabNavigator();
 
 const StackScreens = () => {
+  LogBox.ignoreAllLogs();//Ignore all log notifications
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
     <NavigationContainer>

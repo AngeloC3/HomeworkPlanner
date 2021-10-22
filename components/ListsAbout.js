@@ -9,10 +9,10 @@ const aboutBullets = [
                       'This app has not yet been completed',
                     ];
 const futureBullets = [
-                        'Moifying homework data for classes',
                         'Viewing your homework on a calender',
-                        'Viewing your homework in a class by class screen',
                         'Add settings to further customize the experience',
+                        'Possibly allowing the user to change the date of homework' +
+                          ' without deleting it and making a new one',
                       ];
 
 const ListsAbout = () => {
