@@ -138,10 +138,20 @@ const ModifyClassScreen = ({ route, navigation }) => {
               <View style={{flex:3, alignItems:'stretch', justifyContent:'center'}}>
                 <View>
                   <View>
-                    <Button onPress={showDatepicker} title="Select a date!" />
+                    <TouchableOpacity
+                      style={addstyles.touch}
+                      onPress={showDatepicker}
+                      >
+                      <Text style={liststyles.listText} adjustsFontSizeToFit={true}> Select a date! </Text>
+                    </TouchableOpacity>
                   </View>
                   <View>
-                    <Button onPress={showTimepicker} title="Select the time!" />
+                    <TouchableOpacity
+                      style={addstyles.touch}
+                      onPress={showTimepicker}
+                      >
+                      <Text style={liststyles.listText} adjustsFontSizeToFit={true}> Select the time! </Text>
+                    </TouchableOpacity>
                   </View>
                   {show && (
                     <DateTimePicker
