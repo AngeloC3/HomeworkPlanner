@@ -76,7 +76,7 @@ export const liststyles = StyleSheet.create({
     alignSelf:'center',
     justifyContent:'center',
     fontSize:50,
-  }
+  },
 });
 
 export const listwrap = StyleSheet.create({

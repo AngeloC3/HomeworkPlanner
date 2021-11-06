@@ -6,7 +6,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {styles, textstyles , liststyles , skyBlue, touchstyles, addstyles} from './stylesheet.js';
 import Class from './Class.js'
 import {getClassesData , storeClassesData, } from './AsyncStore.js'
-import GoBack from './GoBack.js';
 
 const AddAndDellClass = ({navigation}) => {
   const debugging = false;
@@ -148,10 +147,10 @@ function addClass(class2Add, classState, setClassState, inputRef, setClass2Add) 
      setClassState(classState);
      inputRef.current.clear();
      setClass2Add(null);
+     const userInfo = {userClasses:classState};
+     console.log('data='+JSON.stringify(userInfo));
+     storeClassesData(userInfo)
    }
-   const userInfo = {userClasses:classState};
-   console.log('data='+JSON.stringify(userInfo));
-   storeClassesData(userInfo)
 }
 
 function delClass(classState, userClass, setClassState, key, setKey) {
@@ -162,11 +161,11 @@ function delClass(classState, userClass, setClassState, key, setKey) {
       classState.splice(index, 1);
       setClassState(classState);
       console.log('Splicing')
+      console.log("classState: " + JSON.stringify(classState));
+      const userInfo = {userClasses:classState};
+      console.log('data='+JSON.stringify(userInfo));
+      storeClassesData(userInfo)
     }
-  console.log("classState: " + JSON.stringify(classState));
-  const userInfo = {userClasses:classState};
-  console.log('data='+JSON.stringify(userInfo));
-  storeClassesData(userInfo)
   if (key === 'refresha') {
     setKey('refreshb');
   } else {
