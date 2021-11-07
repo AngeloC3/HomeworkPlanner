@@ -1,17 +1,16 @@
 import * as React from 'react';
-import { Image, } from 'react-native';
 
 import ScreenTemplate from './ScreenTemplate';
 import {styles} from './stylesheet.js';
+import AdDC from './AddAndDellClass.js';
 
 const HomeScreen = ({ navigation }) => {
   return (
 
     <ScreenTemplate
-        title={"Homework Planner"}
-        midStyle={styles.middleBody} >
-      <Image style={{width: '95%', height: '95%', resizeMode: 'stretch'}}
-        source={require('../assets/HWPlannerImage.jpg')} />
+        title={"Your Classes"}
+        midStyle={styles.midAlt} >
+      <AdDC />
     </ScreenTemplate>
 
   )

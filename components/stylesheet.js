@@ -22,6 +22,9 @@ export const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: skyBlue,
   },
+  midAlt: {
+    flex:6  
+  },
 });
 
 export const textstyles = StyleSheet.create({

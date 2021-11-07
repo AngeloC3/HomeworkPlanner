@@ -4,10 +4,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 //import { } from 'react-native';
 import ClassManagementScreen from './ClassManagementScreen.js';
-import AddAndDellClass from './AddAndDellClass.js';
 import ViewClasses from './ViewClasses.js';
 import ModifyClassScreen from './ModifyClassScreen.js';
-import ModifyHomeworkScreen from './ModifyHomeworkScreen.js';
+import ModifyHomeworkScreen from './ModifyHomework.js';
+import AddDelScreen from './AddDelScreen.js';
+import MHScreen from './ModifyHWScreen.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +24,7 @@ const StackCMScreens = () => {
 
         <Stack.Screen
           name="Add/Delete Class"
-          component={AddAndDellClass}
+          component={AddDelScreen}
         />
 
         <Stack.Screen

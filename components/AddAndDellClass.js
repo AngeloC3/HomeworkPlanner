@@ -34,11 +34,7 @@ const AddAndDellClass = ({navigation}) => {
                 />
             </View>
           }
-
-              <View style={textstyles.title}>
-                  <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Your Classes </Text>
-              </View>
-
+          
           <View style={{flex:10}}>
             <View style={liststyles.listBody}>
               {classState != "" ?

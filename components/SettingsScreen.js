@@ -1,48 +1,40 @@
 import * as React from 'react';
 import { useState , } from 'react';
-import { Text, View, TextInput, ScrollView, } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
+import {Picker} from '@react-native-picker/picker'
 
-import {styles, textstyles , liststyles} from './stylesheet.js';
+import {styles , liststyles} from './stylesheet.js';
+import ScreenTemplate from './ScreenTemplate';
 
 const SettingsScreen = ({ navigation }) => {
-  const [firstName,setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
 
   return (
 
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={styles.container}>
-
-          <View style={textstyles.title}>
-              <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Settings </Text>
-          </View>
-
-          <View style={styles.middleBody}>
-              <TextInput
-                style = {styles.input}
-                placeholder = 'First Name'
-                onChangeText={text => {setFirstName(text)}}
-              />
-              <TextInput
-                style = {styles.input}
-                placeholder = 'Last Name'
-                onChangeText={text => {setLastName(text)}}
-              />
-              <Text style={liststyles.listTitleText} adjustsFontSizeToFit={true} numberOfLines={1}>
-                Hello {firstName} {lastName}!
-              </Text>
-          </View>
-
-          <View style={{flex:.5, justifyContent: 'center', alignItems:'center',}}>
-            <Text style={{flex:.5, color:'white',}}>
-                Settings to allow usage customization has not yet been implemented
-            </Text>
-          </View>
-
-        </View>
-      </ScrollView>
+       <ScreenTemplate
+          title={"Settings"}
+          midStyle={styles.middleBody} >
+         <Settings />
+      </ScreenTemplate>
 
   )
 }
+
+const Settings = ({}) => {
+  const [firstName,setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [theme, setTheme] = useState("#444444");
+
+  return(
+    <View>
+      <Picker
+          selectedValue={theme}
+          onValueChange={(itemValue, itemIndex) =>
+            setTheme(itemValue)
+          }>
+          <Picker.Item label="Dark Mode" value="#444444" />
+          <Picker.Item label="Light Mode" value="#fafafa" />
+      </Picker>
+    </View>
+  )}
 
 export default SettingsScreen

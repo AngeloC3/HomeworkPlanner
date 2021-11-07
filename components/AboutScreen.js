@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Text, View, Button, SectionList, ScrollView, } from 'react-native';
+import { View, } from 'react-native';
 
-import {styles, textstyles , liststyles} from './stylesheet.js';
+import {liststyles, styles} from './stylesheet.js';
 import Lists from './ListsAbout.js';
+import ScreenTemplate from './ScreenTemplate';
 
 const Item = ({ title }) => (
   <View style={liststyles.listBox}>
@@ -13,27 +14,15 @@ const Item = ({ title }) => (
 const AboutScreen = ({ navigation }) => {
   return (
 
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={styles.container}>
-
-          <View style={textstyles.title}>
-              <Text style={textstyles.titleText}
-                    adjustsFontSizeToFit={true}
-                    numberOfLines={1}
-                    >
-                About Homework Planner
-              </Text>
-          </View>
-
+      <ScreenTemplate
+          title={"About"}
+          midStyle={styles.middleBody} >
+        <View style={liststyles.listBody}>
           <View style={liststyles.listBody}>
-            <View style={liststyles.listBody}>
-              <Lists />
-            </View>
+            <Lists />
           </View>
-
-
         </View>
-      </ScrollView>
+      </ScreenTemplate>
 
   )
 }

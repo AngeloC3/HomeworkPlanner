@@ -2,21 +2,18 @@ import * as React from 'react';
 import { Text, View,ScrollView, Button, StyleSheet, TouchableOpacity,} from 'react-native';
 
 import {styles, textstyles , skyBlue, touchstyles } from './stylesheet.js';
+import ScreenTemplate from './ScreenTemplate';
 
 const ClassManagementScreen = ({ navigation }) => {
 
   return (
 
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={styles.container}>
+       <ScreenTemplate
+          title={"Class Management"}
+          midStyle={styles.middleBody} >
+        <View style={managestyles.box}>
 
-          <View style={textstyles.title}>
-              <Text style={textstyles.titleText} adjustsFontSizeToFit={true}> Class Management </Text>
-          </View>
-
-          <View style={managestyles.box}>
-
-          <View style={{flex:1}}>
+          <View style={{}}>
             <View style={managestyles.indi}>
               <TouchableOpacity
                 style={touchstyles.touch}
@@ -54,11 +51,8 @@ const ClassManagementScreen = ({ navigation }) => {
               </View>
             </View>
 
-          </View>
-
         </View>
-      </ScrollView>
-
+      </ScreenTemplate>
   )
 }
 
@@ -72,7 +66,7 @@ const managestyles = StyleSheet.create({
     borderColor: "black",
     borderRadius: 10,
     backgroundColor: skyBlue,
-    alignItems: 'stretch',
+    alignSelf: 'stretch',
     justifyContent: 'space-around',
   },
   indi: {

@@ -19,12 +19,14 @@ const StackScreens = () => {
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{
-                                      tabBarActiveTintColor: 'blue',
-                                      tabBarInactiveTintColor: 'black',
-                                      tabBarActiveBackgroundColor: "#87ceeb",
-                                      tabBarInactiveBackgroundColor: "lightblue",
-                                    }}
+      <Tab.Navigator
+          initialRouteName="Settings"
+          screenOptions={{
+                            tabBarActiveTintColor: 'blue',
+                            tabBarInactiveTintColor: 'black',
+                            tabBarActiveBackgroundColor: "#87ceeb",
+                            tabBarInactiveBackgroundColor: "lightblue",
+                          }}
       >
         <Tab.Screen name="Home" component={HomeScreen}
             options={() => ({
