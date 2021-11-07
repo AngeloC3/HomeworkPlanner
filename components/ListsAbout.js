@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React, {useMemo} from 'react';
 import { Text, View, Button, FlatList, } from 'react-native';
+import {useTheme} from '@react-navigation/native';
 
-import {styles, liststyles, listwrap } from '../components/stylesheet.js';
+import {getListStyles, listwrap } from '../components/stylesheet.js';
 
 const aboutBullets = [
                       'This app was made by Angelo Cataldo',
@@ -16,6 +17,9 @@ const futureBullets = [
                       ];
 
 const ListsAbout = () => {
+  const theme  = useTheme();
+  const liststyles = useMemo(() => getListStyles(theme));
+
   return (
 
     <View style={liststyles.listBody}>

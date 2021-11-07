@@ -1,7 +1,12 @@
-import React from "react";
+import React, {useMemo} from "react";
 import { ScrollView, View, Text} from 'react-native'
-import { styles, textstyles} from './stylesheet.js';
+import { getStyles, getTextStyles} from './stylesheet.js';
+import {useTheme} from '@react-navigation/native';
+
 const ScreenTemplate = ({title,children, midStyle}) => {
+  const theme  = useTheme();
+  const styles = useMemo(() => getStyles(theme));
+  const textstyles = useMemo(() => getTextStyles(theme));
   return (
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
       <View style={styles.container}>

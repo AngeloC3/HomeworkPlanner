@@ -1,13 +1,20 @@
-import React, { useState, useRef , useEffect} from 'react';
+import React, { useState, useRef, useEffect, useMemo} from 'react';
 import {Text, View, TextInput, FlatList, Button,
         TouchableOpacity, Alert, Platform, ScrollView, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useTheme} from '@react-navigation/native';
 
-import {styles, textstyles , liststyles , skyBlue, touchstyles, addstyles} from './stylesheet.js';
+import {getStyles, getListStyles, getTouchStyles, getAddStyles} from './stylesheet.js';
 import Class from './Class.js'
 import {getClassesData , storeClassesData, } from './AsyncStore.js'
 
 const AddAndDellClass = ({navigation}) => {
+  const theme  = useTheme();
+  const styles = useMemo(() => getStyles(theme));
+  const liststyles = useMemo(() => getListStyles(theme));
+  const touchstyles = useMemo(() => getTouchStyles(theme));
+  const addstyles = useMemo(() => getAddStyles(theme));
+
   const debugging = false;
   const delAll = false;
   const [classState, setClassState] = useState([]);
@@ -34,7 +41,7 @@ const AddAndDellClass = ({navigation}) => {
                 />
             </View>
           }
-          
+
           <View style={{flex:10}}>
             <View style={liststyles.listBody}>
               {classState != "" ?

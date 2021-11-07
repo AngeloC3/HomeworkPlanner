@@ -1,10 +1,16 @@
-import * as React from 'react';
+import React, {useMemo} from "react";
 import { Text, View,ScrollView, Button, StyleSheet, TouchableOpacity,} from 'react-native';
+import {useTheme} from '@react-navigation/native';
 
-import {styles, textstyles , skyBlue, touchstyles } from './stylesheet.js';
+import {getStyles, getTextStyles, getTouchStyles } from './stylesheet.js';
 import ScreenTemplate from './ScreenTemplate';
 
 const ClassManagementScreen = ({ navigation }) => {
+  const theme  = useTheme();
+  const styles = useMemo(() => getStyles(theme));
+  const textstyles = useMemo(() => getTextStyles(theme));
+  const touchstyles = useMemo(() => getTouchStyles(theme));
+  const managestyles = useMemo(() => getManageStyles(theme));
 
   return (
 
@@ -56,16 +62,16 @@ const ClassManagementScreen = ({ navigation }) => {
   )
 }
 
-const managestyles = StyleSheet.create({
+const getManageStyles = theme => StyleSheet.create({
   box: {
     flex: 7,
     flexDirection: 'column',
     margin: 8,
     padding: 8,
     borderWidth: 4,
-    borderColor: "black",
+    borderColor: theme.colors.borderColor,
     borderRadius: 10,
-    backgroundColor: skyBlue,
+    backgroundColor: theme.colors.primary,
     alignSelf: 'stretch',
     justifyContent: 'space-around',
   },
@@ -73,7 +79,7 @@ const managestyles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
     justifyContent: 'space-evenly',
-    borderColor: "black",
+    borderColor: theme.colors.borderColor,
     borderRadius: 10,
   },
 });

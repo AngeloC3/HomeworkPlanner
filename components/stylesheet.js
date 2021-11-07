@@ -3,11 +3,12 @@ import { StyleSheet, } from 'react-native';
 
 export const darkModeColor = '#444444';
 export const skyBlue = "#87CEEB";
+const lightblue = 'lightblue'
 
-export const styles = StyleSheet.create({
+export const getStyles = theme => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: darkModeColor,
+    backgroundColor: theme.colors.background,
     alignItems: 'stretch',
   },
   middleBody: {
@@ -20,52 +21,52 @@ export const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 3,
     padding: 10,
-    backgroundColor: skyBlue,
+    backgroundColor: theme.colors.primary,
   },
   midAlt: {
-    flex:6  
+    flex:6
   },
 });
 
-export const textstyles = StyleSheet.create({
+export const getTextStyles = theme => StyleSheet.create({
   title: {
     flex: 1,
     flexDirection: 'column',
     margin: 8,
     padding: 8,
     borderWidth: 4,
-    borderColor: "black",
+    borderColor: theme.colors.borderColor,
     borderRadius: 10,
-    backgroundColor: skyBlue,
+    backgroundColor: theme.colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
   },
   titleText: {
-    color: "black",
+    color: theme.colors.text,
     textAlign: "center",
     fontSize: 44,
     fontWeight: "bold",
   },
 });
 
-export const liststyles = StyleSheet.create({
+export const getListStyles = theme => StyleSheet.create({
   listBox: {
     flex: 1,
     flexDirection: 'column',
     margin: 7,
     padding: 7,
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: theme.colors.borderColor,
     borderRadius: 5,
-    backgroundColor: skyBlue,
+    backgroundColor: theme.colors.primary,
   },
   listText: {
-    color: "black",
+    color: theme.colors.text,
     textAlign: "center",
     fontSize: 20,
   },
   listTitleText: {
-    color: 'white',
+    color: theme.colors.textAlt,
     textAlign: 'center',
     fontSize: 36,
     fontWeight: 'bold',
@@ -96,31 +97,31 @@ export const listwrap = StyleSheet.create({
   },
 });
 
-export const touchstyles = StyleSheet.create({
+export const getTouchStyles = theme => StyleSheet.create({
   touch: {
     flex: 1,
     flexDirection: 'column',
     margin: 8,
     padding: 8,
     borderWidth: 4,
-    borderColor: "black",
+    borderColor: theme.colors.borderColor,
     borderRadius: 10,
-    backgroundColor: 'lightblue',
+    backgroundColor: theme.colors.lighterPrim,
     justifyContent: 'center',
     alignItems: 'center',
   },
 });
 
-export const addstyles = StyleSheet.create({
+export const getAddStyles = theme => StyleSheet.create({
   box: {
     flex: 1,
     flexDirection: 'row',
     margin: 8,
     padding: 8,
     borderWidth: 4,
-    borderColor: "black",
+    borderColor: theme.colors.borderColor,
     borderRadius: 10,
-    backgroundColor: skyBlue,
+    backgroundColor: theme.colors.primary,
     alignItems: 'stretch',
     justifyContent: 'space-around',
   },
@@ -128,7 +129,7 @@ export const addstyles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
     justifyContent: 'space-around',
-    borderColor: "black",
+    borderColor: theme.colors.borderColor,
     borderRadius: 10,
   },
   input: {
@@ -136,7 +137,7 @@ export const addstyles = StyleSheet.create({
     margin: 10,
     borderWidth: 3,
     padding: 10,
-    backgroundColor: 'lightblue',
+    backgroundColor: theme.colors.lighterPrim,
   },
   touch: {
     flex: 1,
@@ -144,9 +145,9 @@ export const addstyles = StyleSheet.create({
     margin: 2,
     padding: 2,
     borderWidth: 4,
-    borderColor: "black",
+    borderColor: theme.colors.borderColor,
     borderRadius: 10,
-    backgroundColor: 'lightblue',
+    backgroundColor: theme.colors.lighterPrim,
     justifyContent: 'center',
     alignSelf: 'stretch',
   },

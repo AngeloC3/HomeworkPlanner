@@ -1,12 +1,16 @@
-import * as React from 'react';
+import React, {useMemo} from 'react';
 import { useState , } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Text, View, Button } from 'react-native';
 import {Picker} from '@react-native-picker/picker'
+import {useTheme} from '@react-navigation/native';
 
-import {styles , liststyles} from './stylesheet.js';
+import {getStyles } from './stylesheet.js';
 import ScreenTemplate from './ScreenTemplate';
+import {AngeMode, LightMode} from './Themes.js';
 
 const SettingsScreen = ({ navigation }) => {
+  const theme  = useTheme();
+  const styles = useMemo(() => getStyles(theme));
 
   return (
 
@@ -22,18 +26,27 @@ const SettingsScreen = ({ navigation }) => {
 const Settings = ({}) => {
   const [firstName,setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [theme, setTheme] = useState("#444444");
+  const theme  = useTheme();
+  const [themeChanger, setThemeChanger] = useState("#444444");
 
   return(
     <View>
+
+      <Button
+        //onPress={}
+        title="Change Theme"
+        color="#841584"
+      />
+
       <Picker
-          selectedValue={theme}
+          selectedValue={themeChanger}
           onValueChange={(itemValue, itemIndex) =>
-            setTheme(itemValue)
+            setThemeChanger(itemValue)
           }>
           <Picker.Item label="Dark Mode" value="#444444" />
           <Picker.Item label="Light Mode" value="#fafafa" />
       </Picker>
+
     </View>
   )}
 

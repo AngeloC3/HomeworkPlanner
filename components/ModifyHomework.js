@@ -1,15 +1,22 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useMemo} from 'react';
 import { Text, View, ScrollView, FlatList, TouchableOpacity, Button,
           TextInput, StyleSheet, Platform, Alert } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import {useTheme} from '@react-navigation/native';
 
-import { styles, textstyles, liststyles, touchstyles, addstyles, skyBlue} from './stylesheet.js';
-import GoBack from './GoBack.js';
+import { getStyles, getListStyles, getTouchStyles, getAddStyles} from './stylesheet.js';
 import Class , { prettyHW } from './Class.js';
 import { storeClassesData, } from './AsyncStore.js';
 import date2String from './DateToPrettyString.js';
 
 const ModifyHomework = ({ route, navigation }) => {
+  const theme  = useTheme();
+  const styles = useMemo(() => getStyles(theme));
+  const liststyles = useMemo(() => getListStyles(theme));
+  const touchstyles = useMemo(() => getTouchStyles(theme));
+  const addstyles = useMemo(() => getAddStyles(theme));
+  const hwstyles = useMemo(() => getHWStyles(theme));
+
   const debugging = false;
   const delAll = false;
   const { userClass } = route.params;
@@ -261,15 +268,15 @@ function clrHomework(chosenClass, setChosenClass, key, setKey, classState, setCl
   }
 }
 
-const hwstyles = StyleSheet.create({
+const getHWStyles = theme => StyleSheet.create({
   box: {
     flexDirection: 'row',
     margin: 8,
     padding: 8,
     borderWidth: 4,
-    borderColor: "black",
+    borderColor: theme.colors.borderColor,
     borderRadius: 10,
-    backgroundColor: skyBlue,
+    backgroundColor: theme.colors.primary,
     alignItems: 'stretch',
     justifyContent: 'space-around',
   },

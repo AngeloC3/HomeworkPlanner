@@ -1,21 +1,26 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {Text, View, SectionList, StyleSheet} from 'react-native';
+import {useTheme} from '@react-navigation/native';
 
-import {styles, liststyles , skyBlue} from './stylesheet.js';
+import {getStyles, getListStyles } from './stylesheet.js';
 import {prettyHW} from './Class.js';
 
 const ClassHWList = ({state}) => {
+  const theme  = useTheme();
+  const styles = useMemo(() => getStyles(theme));
+  const liststyles = useMemo(() => getListStyles(theme));
+  const classliststyles = useMemo(() => getClassListStyles(theme));
 
-let DATA = [];
-for (let i = 0; i < state.length; i++) {
-  DATA.push({name: state[i].name, data: state[i].homework})
-}
+  let DATA = [];
+  for (let i = 0; i < state.length; i++) {
+    DATA.push({name: state[i].name, data: state[i].homework})
+  }
 
-const Item = ({ name }) => (
-  <View style={classliststyles.listBox}>
-    <Text style={classliststyles.listText}>{prettyHW(name)}</Text>
-  </View>
-);
+  const Item = ({ name }) => (
+    <View style={classliststyles.listBox}>
+      <Text style={classliststyles.listText}>{prettyHW(name)}</Text>
+    </View>
+  );
 
   return (
 
@@ -48,15 +53,15 @@ const Item = ({ name }) => (
    )
 }
 
-const classliststyles = StyleSheet.create({
+const getClassListStyles = theme => StyleSheet.create({
   listTitleText: {
-    color: 'black',
+    color: theme.colors.text,
     textAlign: 'center',
     fontSize: 36,
     fontWeight: 'bold',
   },
   listText: {
-    color: "black",
+    color: theme.colors.text,
     textAlign: "center",
     fontSize: 30,
   },
@@ -66,9 +71,9 @@ const classliststyles = StyleSheet.create({
     margin: 7,
     padding: 7,
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: theme.colors.borderColor,
     borderRadius: 5,
-    backgroundColor: skyBlue,
+    backgroundColor: theme.colors.primary,
     justifyContent: 'center',
     alignSelf: 'center'
   },
@@ -80,7 +85,7 @@ const classliststyles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'black',
     borderRadius: 5,
-    backgroundColor: skyBlue,
+    backgroundColor: theme.colors.primary,
     justifyContent: 'center',
     alignSelf: 'center'
   },

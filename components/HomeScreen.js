@@ -1,10 +1,13 @@
-import * as React from 'react';
+import React, {useMemo} from "react";
 import { Image, } from 'react-native';
+import {Theme, useTheme} from '@react-navigation/native';
 
 import ScreenTemplate from './ScreenTemplate';
-import {styles} from './stylesheet.js';
+import {getStyles} from './stylesheet.js';
 
 const HomeScreen = ({ navigation }) => {
+  const theme = useTheme();
+  const styles = useMemo(() => getStyles(theme));
   return (
 
     <ScreenTemplate

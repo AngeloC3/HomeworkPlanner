@@ -1,17 +1,22 @@
-import * as React from 'react';
+import React, {useMemo} from 'react';
 import { View, } from 'react-native';
 
-import {liststyles, styles} from './stylesheet.js';
+import {getListStyles, getStyles} from './stylesheet.js';
 import Lists from './ListsAbout.js';
 import ScreenTemplate from './ScreenTemplate';
-
-const Item = ({ title }) => (
-  <View style={liststyles.listBox}>
-    <Text style={liststyles.listText}> {title} </Text>
-  </View>
-);
+import {useTheme} from '@react-navigation/native';
 
 const AboutScreen = ({ navigation }) => {
+  const theme  = useTheme();
+  const styles = useMemo(() => getStyles(theme));
+  const liststyles = useMemo(() => getListStyles(theme));
+
+  const Item = ({ title }) => (
+    <View style={liststyles.listBox}>
+      <Text style={liststyles.listText}> {title} </Text>
+    </View>
+  );
+
   return (
 
       <ScreenTemplate
