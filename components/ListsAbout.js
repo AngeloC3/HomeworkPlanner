@@ -35,7 +35,7 @@ const ListsAbout = () => {
            renderItem={(bullet) => {
              return (
                <View style={liststyles.listBox}>
-                 <Text>{bullet.item}</Text>
+                 <Text style={liststyles.listText}>{bullet.item}</Text>
                </View>
              );
            }}
@@ -54,7 +54,7 @@ const ListsAbout = () => {
            renderItem={(bullet) => {
              return (
                <View style={liststyles.listBox}>
-                 <Text>{bullet.item}</Text>
+                 <Text style={liststyles.listText}>{bullet.item}</Text>
                </View>
              );
            }}

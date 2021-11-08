@@ -37,6 +37,38 @@ export const storeClassesData = async (value) => {
     }
 }
 
+export const getTheme = async (setTheme) => {
+  try {
+    const jsonValue = await AsyncStorage.getItem('@user_settings')
+    let data = null
+    if (jsonValue!=null) {
+      data = JSON.parse(jsonValue)
+      setTheme(data.userTheme)
+      console.log('just set settings: ' + JSON.stringify(data.userTheme))
+    } else {
+      console.log('just read a null value from Storage')
+    }
+
+
+  } catch(e) {
+    console.log("error in getData ")
+    console.dir(e)
+    // error reading value
+  }
+}
+
+export const storeSettings = async (value) => {
+      try {
+      const jsonValue = JSON.stringify(value)
+        await AsyncStorage.setItem('@user_settings', jsonValue)
+        console.log('just stored '+jsonValue)
+      } catch (e) {
+        console.log("error in storeData ")
+        console.dir(e)
+        // saving error
+    }
+}
+
 export const clearAll = async () => {
         try {
           console.log('Clearing data')
