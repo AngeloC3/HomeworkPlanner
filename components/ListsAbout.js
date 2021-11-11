@@ -11,7 +11,7 @@ const aboutBullets = [
                     ];
 const futureBullets = [
                         'Viewing your homework on a calender',
-                        'Add settings to further customize the experience',
+                        'Add more settings to further customize the experience',
                         'Possibly allowing the user to change the date of homework' +
                           ' without deleting it and making a new one',
                       ];

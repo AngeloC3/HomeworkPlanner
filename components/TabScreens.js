@@ -16,7 +16,7 @@ import {getTheme} from './AsyncStore.js';
 
 
 const Tab = createBottomTabNavigator();
-
+LogBox.ignoreAllLogs() // ignores logs 
 const StackScreens = () => {
    const {currentValue, setCurrentValue} = useValue();
    const theme = currentValue;
