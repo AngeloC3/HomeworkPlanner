@@ -182,7 +182,7 @@ const ModifyHomework = ({ route, navigation }) => {
                                         setHW2Add, setDate2Add, classState, setClassState, index);
                   }}
                 >
-                <Text style={liststyles.listText} adjustsFontSizeToFit={true}> Add this new class! </Text>
+                <Text style={liststyles.listText} adjustsFontSizeToFit={true}> Add this homework! </Text>
               </TouchableOpacity>
 
         </View>
