@@ -8,9 +8,13 @@ Pitch:
 
 Screenshots:
     [Class Management Screen](./screenshots/ClassManagement.png)
+
     [Adding Homework](./screenshots/ModifyHomework.png)
+
     [Viewing Classes](./screenshots/ViewClasses.png)
+
     [Dark Mode](./screenshots/DarkMode.png)
+    
     [Pink Mode](./screenshots/PinkTheme.png)
 
 Developer Notes:
