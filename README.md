@@ -7,14 +7,10 @@ Pitch:
     It's simple to learn and easy to use, resulting in a quick, fast, and stress-free user experience.
 
 Screenshots:
-    [Class Management Screen](./screenshots/ClassManagement.png)
-
-    [Adding Homework](./screenshots/ModifyHomework.png)
-
-    [Viewing Classes](./screenshots/ViewClasses.png)
-
-    [Dark Mode](./screenshots/DarkMode.png)
-    
+    [Class Management Screen](./screenshots/ClassManagement.png) || 
+    [Adding Homework](./screenshots/ModifyHomework.png) || 
+    [Viewing Classes](./screenshots/ViewClasses.png) || 
+    [Dark Mode](./screenshots/DarkMode.png) || 
     [Pink Mode](./screenshots/PinkTheme.png)
 
 Developer Notes:
