@@ -23,3 +23,6 @@
         Multiple - from @react-navigation/native <br />
         Bottom Tab Navigator - from @react-navigation/bottom-tabs <br />
         Ionicons - from react-native-vector-icons/Ionicons <br />
+
+<ins>**Movie Link**</ins> <br />
+    [Movie](https://drive.google.com/file/d/1Zs7PExHXQfS_EVXrmyIvbx4qH2AkFS2n/view?usp=sharing)
